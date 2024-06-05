@@ -1,0 +1,276 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="navbar-container">
+            <div class="container">
+                <div class="col-container">
+                    <div class="col4">
+                        <div class="header-left">
+                            <a href="./index.html">
+                                <img src="~/assets/images/logo.png" alt="">
+                            </a>
+                            <span class="category-line">|</span>
+                            <div class="category">
+                                <a href="./index.html">
+                                    <div class="category-svg-span">
+                                        <svg viewBox="0 0 276.2 276.2">
+                                            <path d="M33.1 2.5C15.3 2.5.9 17 .9 34.8s14.5 32.3 32.3 32.3 32.3-14.5 32.3-32.3S51 2.5 33.1 2.5zm104.6 0c-17.8 0-32.3 14.5-32.3 32.3s14.5 32.3 32.3 32.3c17.8 0 32.3-14.5 32.3-32.3S155.5 2.5 137.7 2.5zm106.2 64.6c17.8 0 32.3-14.5 32.3-32.3S261.7 2.5 243.9 2.5 211.6 17 211.6 34.8s14.5 32.3 32.3 32.3zM32.3 170.5c17.8 0 32.3-14.5 32.3-32.3 0-17.8-14.5-32.3-32.3-32.3S0 120.4 0 138.2s14.5 32.3 32.3 32.3zm104.5 0c17.8 0 32.3-14.5 32.3-32.3 0-17.8-14.5-32.3-32.3-32.3-17.8 0-32.3 14.5-32.3 32.3 0 17.9 14.5 32.3 32.3 32.3zm106.2 0c17.8 0 32.3-14.5 32.3-32.3 0-17.8-14.5-32.3-32.3-32.3s-32.3 14.5-32.3 32.3c0 17.9 14.5 32.3 32.3 32.3zM33 209.1C15.2 209.1.7 223.6.7 241.4c0 17.8 14.5 32.3 32.3 32.3s32.3-14.5 32.3-32.3-14.5-32.3-32.3-32.3zm104.6 0c-17.8 0-32.3 14.5-32.3 32.3 0 17.8 14.5 32.3 32.3 32.3 17.8 0 32.3-14.5 32.3-32.3s-14.5-32.3-32.3-32.3zm106.2 0c-17.8 0-32.3 14.5-32.3 32.3 0 17.8 14.5 32.3 32.3 32.3 17.8 0 32.3-14.5 32.3-32.3s-14.5-32.3-32.3-32.3z"
+                                                  class="cat-dot" />Category
+                                        </svg>
+                                        <span>Category</span>
+                                    </div>
+                                    <div class="category-nav">
+                                        <ul>
+                                            <li>English Learning</li>
+                                            <li>Web Development</li>
+                                            <li>Logo Design</li>
+                                            <li>Motion Graphics</li>
+                                            <li>Video Edition</li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col4 mid-col">
+                        <div class="header-mid">
+                            <div class="home">
+                                <a class="home-sub-menu" href="./index.html">
+                                    <span>Account</span>
+                                    <i class="fa-solid fa-angle-down"></i>
+                                    <div class="home-nav">
+                                        <ul>
+                                            @if (!User.Identity.IsAuthenticated)
+                                            {
+                                            <a asp-controller="Account" asp-action="SignUp">
+                                                <li>Sign Up</li>
+                                            </a>
+                                            <a asp-controller="Account" asp-action="SignIn">
+                                                <li>Sign In</li>
+                                            </a>
+                                            }
+                                            else
+                                            {
+                                            <a href="">
+                                                <li>@User.Identity.Name</li>
+                                            </a>
+                                            <form asp-controller="Account" asp-action="Logout" method="post">
+                                                <li>
+                                                    <button type="submit">Logout</button>
+                                                </li>
+                                            </form>
+                                                @if (User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
+                                                {
+                                                    <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+                                                        <li>Go to Admin Dashboard</li>
+                                                    </a>
+                                                }
+                                            }
+                                </ul>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="courses mid-margin-c">
+                            <a href="./courses.html">
+                                <span>Courses</span>
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </div>
+                        <div class="blog mid-margin-c">
+                            <a href="./blog.html">
+                                <span>Blog</span>
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </div>
+                        <div class="pages mid-margin-c">
+                            <a href="./index.html">
+                                <span>Pages</span>
+                                <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                        </div>
+                        <div class="contact mid-margin-c">
+                            <a href="./contact.html">
+                                <span>Contact</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col4 right-col">
+                    <div class="header-right">
+                        <div class="search-container">
+                            <form>
+                                <input type="text" name="" placeholder="Search...">
+                                <button type="submit" class="fa fa-search" aria-hidden="true"></button>
+                                <span>|</span>
+                                <button type="submit">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
+                                <span>2</span>
+                            </form>
+                        </div>
+
+                        <div class="try-button">
+                            <button>
+                                <span>Try for free</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="header-suggestion">
+            <img class="plankton" src="~/assets/images/plankton.png" alt="">
+            <img src="~/assets/images/left-line.png" alt="">
+            <img src="~/assets/images/right-dots.png" alt="">
+            <div class="sug-container">
+                <div class="container d-flex">
+                    <div class="col6 left-sug-col">
+                        <div class="left-sug">
+                            <p>Access 2700+</p>
+                            <h1>
+                                <span class="sug-animated-txt">
+                                    Online <img src="~/assets/images/orange-line.png"
+                                                alt="">
+                                </span> Tutorial From
+                                <br>Top Instructor.
+                            </h1>
+                            <span>Meet university,and cultural institutions, who'll <br>share their experience.</span>
+                            <br>
+                            <button>
+                                <a href="./courses.html">View all course</a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col6 right-sug-col">
+                        <div class="right-sug">
+                            <img class="animated-dots" src="~/assets/images/animated-dots.png" alt="">
+                            <img src="~/assets/images/circle-1.png" alt="">
+                            <img src="~/assets/images/circle-2.png" alt="">
+                            <div class="main-img">
+                                <img src="~/assets/images/sug-1.jpg" alt="">
+                                <img src="~/assets/images/sug-2.jpg" alt="">
+                            </div>
+                            <div class="pop-up">
+                                <span>
+                                    Tomorrow is our
+                                    <br> <b>“When I Grow Up” Spirit Day!</b>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-banner">
+                    <h1>You can be your own <br>Guiding star with our help</h1>
+                    <button>Get started</button>
+                    <img src="~/assets/images/foot-top-dot.png" alt="">
+                </div>
+            </div>
+            <div class="footer-mid">
+                <div class="footer-mid-left">
+                    <div class="footer-mid-left-container">
+                        <div class="footer-mid-logo">
+                            <a href="./index.html">
+                                <img src="~/assets/images/educal-logo-foot.png" alt="">
+                            </a>
+                        </div>
+                        <div class="footer-mid-left-explanation">
+                            <span>
+                                Great lesson ideas and lesson plans for ESL teachers! Educators can customize lesson
+                                plans
+                                to best.
+                            </span>
+                        </div>
+                        <div class="footer-mid-left-socials">
+                            <i class="fa-brands fa-square-facebook"></i>
+                            <i class="fa-brands fa-square-x-twitter"></i>
+                            <i class="fa-brands fa-square-pinterest"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-mid-center">
+                    <div class="footer-mid-center-company">
+                        <div class="company-heading">
+                            <p>Company</p>
+                        </div>
+                        <div class="company-body">
+                            <ul>
+                                <li>About</li>
+                                <li>Courses</li>
+                                <li>Events</li>
+                                <li>Instructor</li>
+                                <li>Career</li>
+                                <li>Become a Teacher</li>
+                                <li>Contact</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-mid-center-platform">
+                        <div class="platform-heading">
+                            <p>Platform</p>
+                        </div>
+                        <div class="platform-body">
+                            <ul>
+                                <li>Browse Library</li>
+                                <li>Library</li>
+                                <li>Partners</li>
+                                <li>News & Blogs</li>
+                                <li>FAQs</li>
+                                <li>Tutorials</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-mid-right">
+                    <div class="footer-bottom-sub">
+                        <p>Subscribe</p>
+                    </div>
+                    <div class="footer-bottom-email">
+                        <form action="">
+                            <input type="text" placeholder="Your email address">
+                            <button>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="footer-bottom-inf">
+                        <span>Get the latest news and updates right at your inbox.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2022 Educal, All Rights Reserved. Design By <b>Theme Pure</b></span>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="~/assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+﻿@model RegisterVM
+
+@{
+    ViewData["Title"] = "SignUp";
+}
+
+
+<section id="register" style="height:700px;">
+    <div class="container mt-5">
+        <h1 class="text-center">Sign Up</h1>
+        <div class="text-danger" style="width:50%; margin:0 auto;" asp-validation-summary="ModelOnly"></div>
+        <div class="register-form" style="width:50%; margin:0 auto;">
+            <form method="post" asp-action="SignUp">
+                <div class="form-group mb-3">
+                    <label>Email address</label>
+                    <input asp-for="Email" type="text" class="form-control">
+                    <span class="text-danger" asp-validation-for="Email"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label>Username</label>
+                    <input asp-for="Username" class="form-control">
+                    <span class="text-danger" asp-validation-for="Username"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label>Fullname</label>
+                    <input asp-for="Fullname" class="form-control">
+                    <span class="text-danger" asp-validation-for="Fullname"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label>Password</label>
+                    <input asp-for="Password" class="form-control">
+                    <span class="text-danger" asp-validation-for="Password"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label>Confirm Password</label>
+                    <input asp-for="ConfirmPassword" class="form-control">
+                    <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+                </div>
+                <div class="mb-4">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <a asp-action="SignIn">Go to Sign In</a>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+
